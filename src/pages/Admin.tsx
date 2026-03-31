@@ -14,8 +14,10 @@ const STORAGE_KEY = "solvianmc_updates";
 const ADMIN_PASS = "solvian2025";
 
 const Admin = () => {
+  const navigate = useNavigate();
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
   const [updates, setUpdates] = useState<Update[]>([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
