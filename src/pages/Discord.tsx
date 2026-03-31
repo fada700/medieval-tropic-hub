@@ -11,7 +11,7 @@ const Discord = () => (
           Únete a nuestra comunidad en Discord para estar al tanto de todo, hablar con el staff y conocer nuevos amigos.
         </p>
         <a
-          href="https://discord.gg/tu-enlace"
+          href="https://discord.gg/y4ajWpbGd5"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-8 py-3 bg-secondary text-secondary-foreground font-heading font-bold rounded-xl text-lg hover:opacity-90 transition-opacity"
