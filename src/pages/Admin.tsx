@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { Plus, Trash2, Lock } from "lucide-react";
+import { Plus, Trash2, Lock, AlertCircle } from "lucide-react";
 
 interface Update {
   id: string;
