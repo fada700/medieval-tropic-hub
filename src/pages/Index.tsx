@@ -7,18 +7,10 @@ import avatarSoyNulled from "@/assets/avatar-soynulled.png";
 import avatarFelixDevYT from "@/assets/avatar-felixdevyt.png";
 import avatarLuisDev from "@/assets/avatar-luisdev.png";
 
-const FOUNDER_AVATAR_URL = ""; // ← Coloca aquí la URL de tu avatar de Minecraft
-
 const teamMembers = [
-  {
-    name: "Fundador",
-    avatar: FOUNDER_AVATAR_URL || "https://mc-heads.net/avatar/Steve/100",
-    role: "Fundador",
-    isFounder: true,
-  },
-  { name: "SoyNulled", avatar: avatarSoyNulled, role: "Administrador" },
-  { name: "FelixDevYT", avatar: avatarFelixDevYT, role: "Administrador" },
-  { name: "LuisDev", avatar: avatarLuisDev, role: "Administrador" },
+  { name: "SoyNulled", avatar: avatarSoyNulled, role: "Fundador", isFounder: true },
+  { name: "FelixDevYT", avatar: avatarFelixDevYT, role: "Fundador", isFounder: true },
+  { name: "LuisDev", avatar: avatarLuisDev, role: "Fundador", isFounder: true },
 ];
 
 const Index = () => {
