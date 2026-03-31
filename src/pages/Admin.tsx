@@ -50,6 +50,15 @@ const Admin = () => {
     save(updates.filter((u) => u.id !== id));
   };
 
+  const tryLogin = () => {
+    if (password === ADMIN_PASS) {
+      setAuthenticated(true);
+    } else {
+      setError(true);
+      setTimeout(() => navigate("/"), 2000);
+    }
+  };
+
   if (!authenticated) {
     return (
       <Layout>
@@ -59,19 +68,25 @@ const Admin = () => {
               <Lock className="mx-auto h-10 w-10 text-primary" />
               <h1 className="font-heading text-2xl font-bold">Panel Admin</h1>
               <p className="font-body text-sm text-muted-foreground">Ingresa la contraseña para acceder</p>
+              {error && (
+                <div className="flex items-center gap-2 justify-center text-destructive font-body text-sm">
+                  <AlertCircle className="h-4 w-4" />
+                  <span>Contraseña incorrecta. Redirigiendo...</span>
+                </div>
+              )}
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && password === ADMIN_PASS) setAuthenticated(true);
-                }}
-                className="w-full px-4 py-2 rounded-lg bg-background border border-border font-body focus:outline-none focus:ring-2 focus:ring-primary"
+                onKeyDown={(e) => { if (e.key === "Enter") tryLogin(); }}
+                className={`w-full px-4 py-2 rounded-lg bg-background border font-body focus:outline-none focus:ring-2 ${error ? "border-destructive focus:ring-destructive" : "border-border focus:ring-primary"}`}
                 placeholder="Contraseña"
+                disabled={error}
               />
               <button
-                onClick={() => { if (password === ADMIN_PASS) setAuthenticated(true); }}
-                className="w-full px-4 py-2 bg-primary text-primary-foreground font-heading font-bold rounded-lg"
+                onClick={tryLogin}
+                disabled={error}
+                className="w-full px-4 py-2 bg-primary text-primary-foreground font-heading font-bold rounded-lg disabled:opacity-50"
               >
                 Entrar
               </button>
